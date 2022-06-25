@@ -1,0 +1,36 @@
+<div id="<%= dom_id recipe %>">
+  <p>
+    <%= image_tag(recipe.image) %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= recipe.name %>
+  </p>
+
+  <p>
+    <strong>Time:</strong>
+    <%= recipe.time %>
+  </p>
+
+  <p>
+    <strong>Portions:</strong>
+    <%= recipe.portions %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= link_to recipe.category.name, recipe.category%>
+  </p>
+
+  <p>
+    <strong>Ingredients:</strong>
+    <%= recipe.ingredients %>
+  </p>
+
+  <p>
+    <strong>Howto:</strong>
+    <%= recipe.howto %>
+  </p>
+
+</div>

@@ -1,0 +1,48 @@
+<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag "show" %>
+<%= render 'navbar' %>
+
+  <div class="show-recipe">
+    <div class="thumb-and-props">
+      <div>
+        <%= image_tag(@recipe.image, class: "img-thumb") %>
+      </div>
+      <div class="div-props">
+        <%= link_to @recipe.name, @recipe, class: "recipe-title" %> <br>
+        <span class="props">Time to prepare:</span> <%= link_to @recipe.time, @recipe, class: "recipe-props"%><br>
+        <span class="props">Portions:</span> <%= link_to @recipe.portions, @recipe, class: "recipe-props" %> <br>
+        <span class="props">Category:</span> <%= link_to @recipe.category.name, @recipe, class: "recipe-props" %> <br>
+        <span class="props">Posted by:</span> <%= link_to @recipe.user.email, @recipe, class: "recipe-props" %> <br>
+        <% if current_user %>
+        <% if current_user.email == @recipe.user.email %>
+        <div>
+          <div class="edit-btn">
+            <br>
+            <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn-link" %>
+          </div>
+          
+          <%= link_to "Destroy this recipe",recipe_path(@recipe), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure about that?"
+          }, class: "btn-link" %>
+        </div>
+        <% end %>
+      <% else %>
+  
+    <% end %>
+      </div>
+    </div>
+
+    <div>
+      <span class="title-text">Ingredients</span> <br>
+      <div class="recipe-div" ><%= link_to @recipe.ingredients, @recipe, class: "recipe-text"%></div>
+    </div>
+    <div>
+      <span class="title-text">How to prepare</span><br>
+      <div class="recipe-div" ><%= link_to @recipe.howto, @recipe, class: "recipe-text"%></div>
+    </div>
+  </div>
+  <br></br>
+  <br></br>
+  <br></br>
+

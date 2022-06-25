@@ -1,0 +1,19 @@
+<%= render 'navbar' %>
+<%= stylesheet_link_tag "new" %>
+
+<div class="new-recipe">
+  <h1 class="new-recipe-top-name">New recipe</h1>
+  <div class="posting_as">
+    You are posting as <%= link_to current_user.email, root_path, class: "posting-email" %>
+  </div>
+  <br>
+  <%= render "form", recipe: @recipe %>
+
+  <br>
+
+  <br>
+
+</div>
+<br>
+<br>
+<br>

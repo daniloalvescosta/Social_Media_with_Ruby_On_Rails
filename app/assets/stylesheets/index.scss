@@ -1,0 +1,33 @@
+
+#recipes{
+ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    width: 900px;
+    margin: auto;
+    
+    .recipe{
+        background-color: #F5F5F2;
+        width: 270px;
+        height: 270px;
+        margin: 10px;
+       
+        text-align: center;
+        
+        .recipe-name{
+            text-decoration: none;
+            color: #0B1A26;
+            font-size: 20px;
+        }
+        .recipe-name:hover{
+            text-decoration: underline;
+        }
+    }
+    .img-thumb{
+        width: 100%;
+        height: 200px;
+    }
+
+}

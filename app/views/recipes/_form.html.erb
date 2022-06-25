@@ -1,0 +1,56 @@
+<%= form_with(model: recipe) do |form| %>
+  <% if recipe.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :name, class: "input-name", placeholder: "Recipe Name" %>
+  </div>
+
+  <div class="input-container">
+    <div>
+      <%= form.file_field :image, class: "recipe-picture", placeholder: "Recipe Image" %>
+    </div>
+  
+    <div class="input-numbers">
+      <div>
+        Time <br> To <br> Prepare <br>
+        <%= form.number_field :time, class: "time-to-prepare"%><br>
+      </div>
+     <div>
+      Number <br> Of <br> Portions <br>
+      <%= form.number_field :portions, class: "portion" %>
+     </div>
+      
+    </div>
+  </div>
+
+  <div>
+    <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.name, cat.id]}), {}, {class: "categories"} %>
+  </div>
+
+  <div>
+    <p class="text-title">Ingredients: <br></p>
+    <%= form.text_area :ingredients, class: "ingredients" %>
+   
+  </div>
+  <br>
+  <div>
+    <p class="text-title">How To Prepare: <br></p>
+    <%= form.text_area :howto, class: "howto-prepare" %>
+   
+  </div>
+
+
+  <div>
+    <%= form.submit "Submit", :class => "submit-btn" %>
+  </div>
+<% end %>
