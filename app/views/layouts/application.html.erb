@@ -11,10 +11,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
 
-    <%= render 'navbar' %>
+    <%= render 'recipes/navbar' %>
   </head>
 
   <body>
     <%= yield %>
+
+    
+    <%= javascript_include_tag 'carousel'%>
   </body>
 </html>
