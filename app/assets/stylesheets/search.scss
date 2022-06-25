@@ -1,0 +1,25 @@
+.search-form{
+    text-align: center;
+    .search-input{
+        width: 400px;
+        outline: none;
+        border: 0px;
+        border-bottom: 1px solid black;
+        font-size: 15px;
+    }
+    .btn-search{
+        background-color: #0B1A26;
+        color: #F5F5F2;
+        width: 50px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    .btn-search:hover{
+        transition: 0.5s;
+        background-color: #676767;
+    }
+    .img-search{
+        width: 20px;
+    }
+}

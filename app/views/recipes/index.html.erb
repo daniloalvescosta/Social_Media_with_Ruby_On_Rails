@@ -1,8 +1,11 @@
 <p style="color: green"><%= notice %></p>
 <%= stylesheet_link_tag "index" %>
 <%= render 'navbar' %>
-
+<br>
+<%= render 'searchform' %>
+<br/>
 <div id="recipes">
+  
   <% @recipes.each do |recipe| %>
     <div class="recipe">
       <%= image_tag(recipe.image, class:"img-thumb") %> <br>

@@ -8,6 +8,10 @@ class RecipesController < ApplicationController
   
   end
 
+  def search
+    @recipes = Recipe.where("lower(name) LIKE ?","%" + params[:q] + "%")
+  end
+
   # GET /recipes/1 or /recipes/1.json
   def show
   end

@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :recipes
   
+  get "search", to: "recipes#search"
+
   root "recipes#index"
 end
