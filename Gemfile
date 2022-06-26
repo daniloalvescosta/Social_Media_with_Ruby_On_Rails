@@ -61,6 +61,7 @@ group :development do
   gem 'simple_form'
   gem 'sass-rails'
   gem 'simple_form'
+  gem 'will_paginate', '~> 3.0'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

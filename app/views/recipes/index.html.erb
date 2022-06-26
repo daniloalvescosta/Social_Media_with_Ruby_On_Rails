@@ -13,6 +13,20 @@
       <%= link_to recipe.name , recipe, class:"recipe-name" %>
     </div>
     
-  <% end %>
+  <% end %>  
+  <br>
 </div>
+
+</div>
+
+
+<div id="pages">
+  <ul class=”pagination”>
+
+    <li class="item-page"> <%= will_paginate(@recipes,:previous_label => "&laquo;", 
+    :next_label => "&raquo;",:class=>"page",:outer_window => 1,:inner_window => 0) %></li>
+  
+    </ul>
+</div>
+
 
