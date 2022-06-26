@@ -8,9 +8,9 @@ development:
   <<: *default
   database: dailyEasyRecipes_development
   username: postgres
-  password: 442002lol
-  port: 5432
-  host: localhost
+  password: 
+  port:
+  host: 
 
 test:
   <<: *default
