@@ -8,13 +8,18 @@ development:
   <<: *default
   database: dailyEasyRecipes_development
   username: postgres
-  password: 
-  port:
-  host: 
+  password: 442002lol
+  port: 5432
+  host: localhost
 
 test:
   <<: *default
   database: dailyEasyRecipes_test
+  username: postgres
+  password: 442002lol
+  port: 5432
+  host: localhost
+
 
 production:
   <<: *default
