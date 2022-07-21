@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[ show edit update destroy ]
+  before_action :set_recipe, only: %i[show edit update destroy]
   before_action :set_categories
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.paginate(:page => params[:page], :per_page => 6)
-  
+    @recipes = Recipe.paginate(page: params[:page], per_page: 6)
   end
 
   def search
-    @recipes = Recipe.where("lower(name) LIKE ?","%" + params[:q] + "%")
+    @recipes = Recipe.where('lower(name) LIKE ?', "%#{params[:q]}%")
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show
-  end
+  def show; end
 
   # GET /recipes/new
   def new
@@ -22,8 +22,7 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /recipes or /recipes.json
   def create
@@ -31,7 +30,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully created." }
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +43,7 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully updated." }
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,23 +56,23 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    
+
     redirect_to root_path, status: :see_other
-    
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_recipe
-      @recipe = Recipe.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def recipe_params
-      params.require(:recipe).permit(:name, :time, :portions, :ingredients, :howto, :image, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
-    def set_categories
-      @categories = Category.all.order(:name)
-    end
+  # Only allow a list of trusted parameters through.
+  def recipe_params
+    params.require(:recipe).permit(:name, :time, :portions, :ingredients, :howto, :image, :category_id)
+  end
+
+  def set_categories
+    @categories = Category.all.order(:name)
+  end
 end
